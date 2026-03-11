@@ -193,6 +193,11 @@ h2 {
   background-size: contain;
   background-repeat: no-repeat;
   cursor: grab;
+  opacity: 1;
+}
+
+.peca-incorrecta {
+  opacity: 0.4;
 }
 
 /* PEÇA EQUITAT */

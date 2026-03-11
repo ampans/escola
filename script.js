@@ -94,7 +94,7 @@ function tornarAPosicioInicial(peça, ambAnimacio = true) {
 
   peça.style.left = pos.left + 'px';
   peça.style.top  = pos.top  + 'px';
-  peça.style.zIndex = '';
+  peça.style.zIndex = 1; 
 }
 
 // ============================
@@ -145,6 +145,9 @@ function comprovarPeça(peça) {
   if (!PECES_CORRECTES.includes(id)) {
     mostrarFeedbackError(peça);
     tornarAPosicioInicial(peça);
+    setTimeout(() => {
+      peça.classList.add('peca-incorrecta'); 
+    }, 450);
     return false;
   }
 
@@ -239,7 +242,7 @@ function iniciarJoc() {
   const peces = document.querySelectorAll(".peça");
   peces.forEach(peça => {
     peça.dataset.col_locada = 'false';
-    peça.classList.remove('peca-col-locada', 'peca-error');
+    peça.classList.remove('peca-col-locada', 'peca-error', 'peca-incorrecta');
     peça.style.cursor = 'grab';
     peça.style.zIndex = '';
     peça.style.visibility = 'visible';
