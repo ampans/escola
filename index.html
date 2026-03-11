@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Construeix amb AMPANS una escola per a tothom!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="joc-no-iniciat">
+
+  <!-- PANTALLA STANDBY -->
+  <div class="pantalla-inici" id="pantallaStandby">
+
+    <video autoplay muted loop playsinline class="video-fons">
+      <source src="Imatges/standby.mp4" type="video/mp4">
+    </video>
+
+    <div class="cercle-inici">
+      <img src="Imatges/ma.png" alt="Toca per començar">
+    </div>
+
+    <!-- IMATGE TÍTOL AMB TEXT -->
+    <div class="contenidor-titol-standby">
+      <div class="imatge-wrapper">
+        <img src="Imatges/fons_titol.png" alt="Títol" class="imatge-titol-standby">
+        <div class="text-desplacant-wrapper">
+          <span class="text-desplacant">OPORTUNITATS PER APRENDRE I PER CRÈIXER</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="contingut-principal">
+
+    <!-- PANTALLA INICI DEL JOC -->
+    <h1 id="titol-principal">Construeix amb AMPANS una escola per a tothom!</h1>
+    <h2 id="subtitol">Arrossega les peces per fer-les encaixar i construir l'escola</h2>
+
+    <h1 id="titol-aconseguit">Bona feina!</h1>
+    <h2 id="subtitol-aconseguit" style="visibility: hidden; text-align: center;">A AMPANS acompanyem a persones amb discapacitat intel·lectual<br> i en risc d'exclusió per fer realitat els seus projectes de vida.</h2>
+
+    <div class="contenidor-joc">
+      <div id="tauler-wrapper"></div>
+      <img id="ajuda" src="Imatges/ajuda.png" alt="Ajuda">
+      <img id="tauler" src="Imatges/tauler.png" alt="Tauler">
+
+      <div class="peça" id="equitat"></div>
+      <div class="peça" id="aprenentatge"></div>
+      <div class="peça" id="itineraris_personalitzats"></div>
+      <div class="peça" id="reptes"></div>
+      <div class="peça" id="acompanyament"></div>
+      <div class="peça" id="diversitat"></div>
+      <div class="peça" id="inclusio"></div>
+      <div class="peça" id="formacio"></div>
+      <div class="peça" id="competicio"></div>
+      <div class="peça" id="aillament"></div>
+    </div>
+
+    <button class="boto-reiniciar" onclick="iniciarJoc()">
+      <img src="Imatges/reiniciar.png" alt="Reiniciar">
+      <span>TORNAR A<br>COMENÇAR</span>
+    </button>
+
+    <!-- Pantalla de victòria -->
+    <div class="victoria" id="victoria">
+      <button class="boto-reiniciar boto-victoria" onclick="iniciarJoc()">
+        <img src="Imatges/reiniciar.png" alt="Reiniciar">
+        <span>TORNAR A<br>COMENÇAR</span>
+      </button>
+      <div id="tauler-final"></div>
+    </div>
+
+    <div id="contenidor-final" class="amagat">
+      <img class="foto-final" src="Imatges/final1.png" alt="Final 1">
+      <img class="foto-final" src="Imatges/final2.png" alt="Final 2">
+      <img class="foto-final" src="Imatges/final3.png" alt="Final 3">
+      <img class="foto-final" src="Imatges/final4.png" alt="Final 4">
+      <img class="foto-final" src="Imatges/final5.png" alt="Final 5">
+      <img class="foto-final" src="Imatges/final6.png" alt="Final 6">
+      <img class="foto-final" src="Imatges/final7.png" alt="Final 7">
+      <img class="foto-final" src="Imatges/logo.png" alt="Logo">
+    </div>
+
+  </div> <!-- Fi contingut-principal -->
+
+  <script src="script.js"></script>
+
+  <script>
+    function ajustarEscala() {
+      const escalaX = window.innerWidth / 1456;
+      const escalaY = window.innerHeight / 816;
+      const escala = Math.min(escalaX, escalaY);
+
+      const contingut = document.getElementById('contingut-principal');
+      contingut.style.transform = `scale(${escala})`;
+      contingut.style.left = (window.innerWidth - 1456 * escala) / 2 + 'px';
+      contingut.style.top = (window.innerHeight - 816 * escala) / 2 + 'px';
+    }
+
+    window.addEventListener('resize', ajustarEscala);
+    ajustarEscala();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,417 @@
+@font-face {
+  font-family: 'Graphik';
+  src: url('fonts/Graphik-Semibold.otf') format('opentype');
+  font-weight: 600;
+}
+
+/* AMAGAR JOC FINS QUE COMENCI */
+body.joc-no-iniciat h1,
+body.joc-no-iniciat .boto-reiniciar,
+body.joc-no-iniciat #tauler {
+  display: none;
+}
+
+/* PANTALLA STANDBY */
+.pantalla-inici {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.video-fons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -1;
+}
+
+.pantalla-inici.amagar {
+  display: none;
+}
+
+.cercle-inici {
+  position: absolute;
+  top: 25%;
+  left: 15%;
+  width: 40mm;
+  height: 40mm;
+  background: linear-gradient(145deg, #ff9a3c, #e8622a);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 20px 60px rgba(232, 98, 42, 0.3);
+  animation: pulsaCercle 2s ease-in-out infinite;
+}
+
+.cercle-inici img {
+  max-width: 60%;
+  max-height: 60%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+
+.contenidor-titol-standby {
+  position: fixed;
+  bottom: 100px;
+  right: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 2001;
+}
+
+.imatge-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1500px;
+  margin-left: auto;
+}
+
+.imatge-titol-standby {
+  width: 100%;
+  display: block;
+}
+
+.text-desplacant-wrapper {
+  font-family: 'Graphik', sans-serif;
+  font-weight: 600;
+  font-size: 3.5rem;
+  color: #000000;
+  position: absolute;
+  bottom: 28%;
+  width: 100%;
+  white-space: nowrap;
+  text-align: center;
+}
+
+@keyframes pulsaCercle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* COLORS I FONS */
+body {
+  font-family: 'Graphik', sans-serif;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url('Imatges/fons.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+html {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+#contingut-principal {
+  width: 1456px;
+  height: 816px;
+  transform-origin: top left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+/* TÍTOL */
+h1 {
+  text-align: center;
+  color: #2d1500;
+  font-size: 35px;
+  margin-top: 60px;
+  margin-bottom: 10px;
+}
+
+/* SUBTÍTOL */
+h2 {
+  text-align: center;
+  color: #e0684b;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+/* TAULER JOC */
+.contenidor-joc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+/* WRAPPER TAULER + AJUDA */
+.tauler-wrapper {
+  position: relative;
+  width: 700px;
+  height: 500px;
+  transform: translateY(40px);
+  overflow: visible;
+}
+
+/* IMATGE AJUDA */
+#ajuda {
+  width: 680px;
+  height: 480px;
+  display: none;
+  position: absolute;
+  top: 183px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 900;
+}
+
+#ajuda.visible {
+  display: block;
+}
+
+#tauler {
+  position: relative;
+  width: 700px;
+  height: auto;
+  margin-top: 30px;
+  opacity: 0.5;
+}
+
+.peça {
+  position: absolute;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: grab;
+}
+
+/* PEÇA EQUITAT */
+#equitat {
+  width: 430px;
+  height: 230px;
+  top: 25%;
+  left: 2%;
+  background-image: url("Imatges/equitat.png");
+}
+
+/* PEÇA APRENENTATGE */
+#aprenentatge {
+  width: 430px;
+  height: 230px;
+  top: 43%;
+  left: 14%;
+  background-image: url("Imatges/aprenentatge.png");
+}
+
+/* PEÇA ITINERARIS PERSONALITZATS */
+#itineraris_personalitzats {
+  width: 370px;
+  height: 170px;
+  top: 20%;
+  left: 70%;
+  background-image: url("Imatges/itineraris_personalitzats.png");
+}
+
+/* PEÇA REPTES */
+#reptes {
+  width: 430px;
+  height: 230px;
+  top: 30%;
+  left: 87%;
+  background-image: url("Imatges/reptes.png");
+}
+
+/* PEÇA ACOMPANYAMENT */
+#acompanyament {
+  width: 370px;
+  height: 170px;
+  top: 20%;
+  left: 15%;
+  background-image: url("Imatges/acompanyament.png");
+}
+
+/* PEÇA DIVERSITAT */
+#diversitat {
+  width: 460px;
+  height: 260px;
+  top: 45%;
+  left: 75%;
+  background-image: url("Imatges/diversitat.png");
+}
+
+/* PEÇA INCLUSIO */
+#inclusio {
+  width: 200px;   /* ← amplada del div (zona clicable) */
+  height: 230px;  /* ← alçada del div */
+  top: 53%;
+  left: 2%;
+  background-image: url("Imatges/inclusio.png");
+  background-size: 165px 230px; /* ← mida real de la imatge dins el div */
+  background-position: left center;
+}
+
+/* PEÇA FORMACIO */
+#formacio {
+  width: 470px;
+  height: 270px;
+  top: 77%;
+  left: 67%;
+  background-image: url("Imatges/formacio.png");
+}
+
+/* PEÇA AILLAMENT */
+#aillament {
+  width: 400px;
+  height: 200px;
+  top: 74%;
+  left: 10%;
+  background-image: url("Imatges/aillament.png");
+}
+
+/* PEÇA COMPETICIO */
+#competicio {
+  width: 400px;
+  height: 200px;
+  top: 61%;
+  left: 86%;
+  background-image: url("Imatges/competicio.png");
+}
+
+/* BOTÓ REINICIAR */
+.boto-reiniciar {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  background: #8b8178;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #ffffff;
+  cursor: pointer;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+
+.boto-reiniciar:hover {
+  background: rgba(213, 204, 194, 0.95);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.boto-reiniciar img {
+  width: 22px;
+  height: 22px;
+}
+
+.boto-reiniciar span {
+  line-height: 1.3;
+  text-align: left;
+}
+
+/* PANTALLA VICTÒRIA */
+.victoria {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.victoria.mostrar-titol {
+  opacity: 1;
+}
+
+.victoria.mostrar {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* PEÇA COL·LOCADA CORRECTAMENT */
+.peca-col-locada {
+  opacity: 1 !important;
+}
+
+#titol-aconseguit {
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  text-align: center;
+  font-weight: 600 !important;
+  color: #2d1500;
+  font-size: 35px;
+  margin: 0;
+  visibility: hidden;
+}
+
+#titol-aconseguit.visible {
+  visibility: visible;
+}
+
+#subtitol-aconseguit {
+  position: absolute;
+  top: 110px;
+  width: 100%;
+  text-align: center;
+  color: #e0684b;
+  font-size: 20px;
+  font-weight: 500 !important;
+  margin: 0;
+  visibility: hidden;
+}
+
+/* COL·LATGE FINAL */
+#contenidor-final {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+@keyframes apareixer {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.foto-final {
+  position: absolute;
+  height: auto;
+  opacity: 0;
+}
+
+.foto-final:nth-child(1) { top: 250px; left: 50px;   width: 350px; transform: rotate(-4deg); }
+.foto-final:nth-child(2) { top: 400px; left: 250px;  width: 300px; transform: rotate(3deg);  }
+.foto-final:nth-child(3) { top: 210px; left: 400px;  width: 350px; transform: rotate(-2deg); }
+.foto-final:nth-child(4) { top: 400px; left: 550px;  width: 350px; transform: rotate(5deg);  }
+.foto-final:nth-child(5) { top: 200px; left: 800px;  width: 350px; transform: rotate(-3deg); }
+.foto-final:nth-child(6) { top: 400px; left: 900px;  width: 300px; transform: rotate(2deg);  }
+.foto-final:nth-child(7) { top: 320px; left: 1100px; width: 350px; transform: rotate(-5deg); }
+.foto-final:nth-child(8) { top: 150px; left: 70px;   width: 250px; transform: rotate(0deg);  }
+
+/* FEEDBACK D'ERROR (shake) */
+.peca-error {
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-8px); }
+  40%       { transform: translateX(8px); }
+  60%       { transform: translateX(-5px); }
+  80%       { transform: translateX(5px); }
+}
